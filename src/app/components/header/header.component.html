@@ -18,23 +18,26 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-default" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Recetas
-            <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Carrito</a></li>
+            <li><a
+              href="#"
+              (click)="onSelect('receta')"
+              >Recetas</a></li>
+          <li><a
+            href="#"
+            (click)="onSelect('receta-lista')"
+            >Lista de Compras</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <!-- <ul class="nav navbar-nav navbar-right">
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle"
             data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="#">Recetas</a></li>
+              <li><a href="#">Lista de Compras</a></li>
             </ul>
           </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </ul> -->
+      </div>
+    </div>
   </nav>

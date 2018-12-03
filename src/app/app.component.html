@@ -1,10 +1,12 @@
-<app-header></app-header>
+<app-header (destacado)="alNavegar($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h4>Recetario</h4>
-      <app-receta-app></app-receta-app>
-    </div>
+      <app-receta-app
+      *ngIf="destacado === 'receta'" ></app-receta-app>
+      <app-compras-lista
+      *ngIf="destacado !== 'receta'"></app-compras-lista>
   </div>
 </div>
 

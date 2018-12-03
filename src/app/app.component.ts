@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recetas-app';
+  destacado = 'receta';
+  alNavegar(feat: string) {
+    this.destacado = feat;
+  }
 }
