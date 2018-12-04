@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,6 +10,7 @@ import { RecetaAppComponent } from './components/recetas/receta-app/receta-app.c
 import { RecetaItemComponent } from './components/recetas/receta-item/receta-item.component';
 import { ComprasEditaComponent } from './components/compras/compras-edita/compras-edita.component';
 import { ComprasListaComponent } from './components/compras/compras-lista/compras-lista.component';
+import { DropdownDirective } from './components/compatido/dropdown.directive';
 
 
 @NgModule({
@@ -20,10 +22,12 @@ import { ComprasListaComponent } from './components/compras/compras-lista/compra
     RecetaAppComponent,
     RecetaItemComponent,
     ComprasEditaComponent,
-    ComprasListaComponent
+    ComprasListaComponent,
+    DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

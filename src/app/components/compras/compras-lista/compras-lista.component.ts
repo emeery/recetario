@@ -12,8 +12,8 @@ export class ComprasListaComponent implements OnInit {
     new Ingrediente('tomates', 10)
   ];
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  onAddIngrediente(ingrediente: Ingrediente) {
+    this.ingredientes.push(ingrediente);
   }
-
 }

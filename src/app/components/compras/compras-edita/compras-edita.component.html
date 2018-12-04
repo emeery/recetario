@@ -10,6 +10,7 @@
             type="text"
             id="nombre"
             class="form-control"
+            #nombreInput
             >
           </div>
           <div class="col-sm-2">
@@ -18,13 +19,18 @@
               type="number"
               id="monto"
               class="form-control"
+              #montoInput
               >
             </div>
         </div>
         <br>
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-success" type="submit">Add</button>
+            <button
+            class="btn btn-success"
+            type="submit"
+            (click)="onAddItem()"
+            >Add</button>
             &nbsp;
             <button class="btn btn-danger" type="button">X</button>
             &nbsp;

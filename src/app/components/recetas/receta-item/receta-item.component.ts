@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter } from '@angular/core';
 import { Receta } from '../model/receta.model';
+import { RecetaService } from '../recetas-lista/recetas.service';
 
 @Component({
   selector: 'app-receta-item',
@@ -12,11 +13,10 @@ import { Receta } from '../model/receta.model';
   styleUrls: ['./receta-item.component.css']
 })
 export class RecetaItemComponent implements OnInit {
-  @Input() receta: Receta; // dentro hacia afuera
-  @Output() recetaSeleccionada = new EventEmitter<void>();
-  constructor() {}
+  @Input() receta: Receta; // entrada de otro componente
+  constructor(private recetaServicio: RecetaService) {}
   ngOnInit() {}
   alSeleccionar() {
-    this.recetaSeleccionada.emit();
+    this.recetaServicio.recetaSelected.emit(this.receta);
   }
 }
