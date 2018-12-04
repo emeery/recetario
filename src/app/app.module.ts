@@ -11,6 +11,7 @@ import { RecetaItemComponent } from './components/recetas/receta-item/receta-ite
 import { ComprasEditaComponent } from './components/compras/compras-edita/compras-edita.component';
 import { ComprasListaComponent } from './components/compras/compras-lista/compras-lista.component';
 import { DropdownDirective } from './components/compatido/dropdown.directive';
+import { ComprasListaService } from './components/compras/compras-lista/compras.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { DropdownDirective } from './components/compatido/dropdown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ComprasListaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
