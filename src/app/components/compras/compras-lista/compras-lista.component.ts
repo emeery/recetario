@@ -12,6 +12,7 @@ export class ComprasListaComponent implements OnInit {
   constructor(private clServicio: ComprasListaService) { }
   ngOnInit() {
     this.ingredientes = this.clServicio.getIngredientes();
+    console.log(this.ingredientes);
     this.clServicio.ingredientesChanged
     .subscribe((ingre: Ingrediente[]) => {
       this.ingredientes = ingre;

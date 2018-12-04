@@ -23,7 +23,7 @@
         <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#">To Shopping Lista</a></li>
+          <li><a (click)="onAlCarrito()" style="cursor: pointer;">A la Lista de Compras</a></li>
           <li><a href="#">Edita Receta</a></li>
           <li><a href="#">Delete Receta</a></li>
         </ul>
@@ -32,11 +32,16 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{ receta.descripcion }}
+    <h4>{{ receta.descripcion }} </h4>
   </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
-      Ingredientes
+      <ul class="list-group">
+        <li class="list-group-item"
+        *ngFor="let rcta of receta.ingredientes"
+        > <strong> {{ rcta.nombre }} - ${{ rcta.monto }} </strong>
+        </li>
+      </ul>
     </div>
   </div>

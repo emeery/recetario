@@ -14,4 +14,11 @@ export class ComprasListaService {
     this.ingredientes.push(ing);
     this.ingredientesChanged.emit(this.ingredientes.slice());
   }
+  addIngredientes(ing: Ingrediente[]) {
+    // for (const ingrediente of ing) {
+    //   this.addIngrediente(ingrediente);
+    // }
+    this.ingredientes.push(...ing);
+    this.ingredientesChanged.emit(this.ingredientes.slice());
+  }
 }
