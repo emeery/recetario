@@ -12,29 +12,28 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Recetario</a>
+        <a class="navbar-brand" 
+        routerLink="/"
+        >Recetario</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-default" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a
-              href="#"
-              (click)="onSelect('receta')"
-              >Recetas</a></li>
-          <li><a
-            href="#"
-            (click)="onSelect('receta-lista')"
-            >Lista de Compras</a></li>
+            <li routerLinkActive="active"><a
+            routerLink="/recetas"
+            >Recetas</a></li>
+          <li routerLinkActive="active"><a
+          routerLink="/compras-lista"
+          >Lista de Compras</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-
           <li class="dropdown" appDropdown>
-            <a href="#" class="dropdown-toggle"
+            <a style="cursor: pointer;" class="dropdown-toggle"
             data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Recetas</a></li>
-              <li><a href="#">Lista de Compras</a></li>
+              <li><a style="cursor: pointer;">Recetas</a></li>
+              <li><a style="cursor: pointer;">Lista de Compras</a></li>
             </ul>
           </li>
         </ul>

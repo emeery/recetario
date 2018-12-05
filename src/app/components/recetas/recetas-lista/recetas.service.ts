@@ -29,6 +29,9 @@ export class RecetaService {
   getRecetas() {
     return this.recetas.slice();
   }
+  getReceta(index: number) {
+    return this.recetas[index];
+  }
   addIngredientesAlCarrito(ingrediente: Ingrediente[]) {
     this.clServicio.addIngredientes(ingrediente);
   }

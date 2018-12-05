@@ -12,6 +12,9 @@ import { ComprasEditaComponent } from './components/compras/compras-edita/compra
 import { ComprasListaComponent } from './components/compras/compras-lista/compras-lista.component';
 import { DropdownDirective } from './components/compatido/dropdown.directive';
 import { ComprasListaService } from './components/compras/compras-lista/compras.service';
+import { AppRoutingModule } from './routes/app.routing.module';
+import { RecetasStartComponent } from './components/recetas/recetas-start/recetas-start.component';
+import { RecetasEditComponent } from './components/recetas/recetas-edit/recetas-edit.component';
 
 
 @NgModule({
@@ -24,9 +27,12 @@ import { ComprasListaService } from './components/compras/compras-lista/compras.
     RecetaItemComponent,
     ComprasEditaComponent,
     ComprasListaComponent,
-    DropdownDirective
+    DropdownDirective,
+    RecetasStartComponent,
+    RecetasEditComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule
   ],

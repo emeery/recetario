@@ -14,9 +14,7 @@ import { RecetaService } from '../recetas-lista/recetas.service';
 })
 export class RecetaItemComponent implements OnInit {
   @Input() receta: Receta; // entrada de otro componente
-  constructor(private recetaServicio: RecetaService) {}
+  @Input() index: number;
+  constructor() {}
   ngOnInit() {}
-  alSeleccionar() {
-    this.recetaServicio.recetaSelected.emit(this.receta);
-  }
 }
