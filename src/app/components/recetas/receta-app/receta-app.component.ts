@@ -9,13 +9,8 @@ import { RecetaService } from '../recetas-lista/recetas.service';
   providers: [RecetaService]
 })
 export class RecetaAppComponent implements OnInit {
-  recetaSelected: Receta;
-  constructor(private recetaServicio: RecetaService) { }
+  constructor() { }
   ngOnInit() {
-    this.recetaServicio.recetaSelected
-    .subscribe((recipe: Receta) => {
-      this.recetaSelected = recipe;
-    });
   }
 
 }

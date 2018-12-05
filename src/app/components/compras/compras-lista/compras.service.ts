@@ -1,8 +1,8 @@
 
 import {Ingrediente} from '../../compatido/model/ingrediente.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 export class ComprasListaService {
-  ingredientesChanged = new EventEmitter<Ingrediente[]>();
+  ingredientesChanged = new Subject<Ingrediente[]>();
   ingredientes: Ingrediente[] = [
     new Ingrediente('Apio', 5),
     new Ingrediente('Brócoli', 10)
@@ -12,13 +12,13 @@ export class ComprasListaService {
   }
   addIngrediente(ing: Ingrediente) {
     this.ingredientes.push(ing);
-    this.ingredientesChanged.emit(this.ingredientes.slice());
+    this.ingredientesChanged.next(this.ingredientes.slice());
   }
   addIngredientes(ing: Ingrediente[]) {
     // for (const ingrediente of ing) {
     //   this.addIngrediente(ingrediente);
     // }
     this.ingredientes.push(...ing);
-    this.ingredientesChanged.emit(this.ingredientes.slice());
+    this.ingredientesChanged.next(this.ingredientes.slice());
   }
 }

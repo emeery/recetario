@@ -6,7 +6,6 @@ import { ComprasListaService
 } from '../../compras/compras-lista/compras.service';
 @Injectable()
 export class RecetaService {
-  recetaSelected = new EventEmitter<Receta>();
   recetas: Receta[] = [
     new Receta(
       'Hamburguesa Guacamole',

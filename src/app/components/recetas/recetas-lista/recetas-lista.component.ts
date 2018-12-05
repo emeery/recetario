@@ -17,6 +17,6 @@ export class RecetasListaComponent implements OnInit {
     this.recetas = this.recetaServicio.getRecetas();
   }
   onNuevaReceta() {
-    this.router.navigate(['new'], {relativeTo: this.route});    
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 }
