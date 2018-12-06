@@ -19,6 +19,9 @@ export class ComprasListaComponent implements OnInit, OnDestroy {
       this.ingredientes = ingre;
     });
   }
+  onEditarItem(index: number) {
+    this.clServicio.empezarEditing.next(index);
+  }
   ngOnDestroy() {
     this.subscripcion.unsubscribe();
   }

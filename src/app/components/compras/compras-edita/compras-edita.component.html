@@ -1,26 +1,29 @@
 <div class="row">
     <div class="col-xs-12">
-      <form>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div class="row">
-          <div class="col-sm-5">
-            <label for="nombre">
-              Nombre
-            </label>
+          <div class="col-sm-4 form-group">
+            <label for="nombre">Nombre</label>
             <input
             type="text"
             id="nombre"
             class="form-control"
-            #nombreInput
+            name="nombre"
+            ngModel
+            required
             >
           </div>
-          <div class="col-sm-2">
-              <label for="monto">Monto</label>
-              <input
-              type="number"
-              id="monto"
-              class="form-control"
-              #montoInput
-              >
+          <div class="col-sm-2 form-group">
+            <label for="monto">Monto</label>
+            <input
+            type="number"
+            id="monto"
+            class="form-control"
+            name="monto"
+            ngModel
+            required
+            [pattern]="'^[1-9]+[0-9]*$'"
+            >
             </div>
         </div>
         <br>
@@ -29,12 +32,17 @@
             <button
             class="btn btn-success"
             type="submit"
-            (click)="onAddItem()"
-            >Add</button>
+            [disabled]="!f.valid"
+            >{{editarModo ? 'actualizar' : 'agregar'}}</button>
             &nbsp;
-            <button class="btn btn-danger" type="button">X</button>
+            <button class="btn btn-danger"
+            (click)="onDelete()"
+            type="button"
+            *ngIf="editarModo">X</button>
             &nbsp;
-            <button class="btn btn-primary" type="button">Clear</button>
+            <button class="btn btn-primary"
+            (click)="onClear()"
+            type="button">Clear</button>
           </div>
         </div>
       </form>
