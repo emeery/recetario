@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="recetaForma" (submit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-success">Salvar</button>
@@ -11,16 +11,21 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="">Nombre</label>
-            <input type="text" id="nombre" class="form-control">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control"
+            formControlName="nombre"
+            >
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagenRuta">Imagen URL</label>
-            <input type="text" id="imagenRuta" class="form-control">
+            <input type="text" id="imagenRuta" class="form-control"
+            formControlName="imagenRuta"
+            >
           </div>
         </div>
       </div>
@@ -38,28 +43,46 @@
             id="descripcion"
             class="form-control"
             rows="6"
+            formControlName="descripcion"
             >
             </textarea>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
+        <div class="col-xs-12"
+        formArrayName="ingredientes">
+          <div class="row"
+          *ngFor="let ingctrl of getControls(); let i = index"
+          formGroupName="{{i}}"
+          style="margin-top: 10px;"
+          >
             <div class="col-xs-8">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control"
+              formControlName="nombre"
+              >
             </div>
             <div class="col-xs-2">
-              <input type="number" class="form-control">
+              <input
+              formControlName="monto"
+              type="number" class="form-control">
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger">X</button>
             </div>
           </div>
-        </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+              type="button"
+              (click)="onAddIngrediente()" class="btn btn-success">
+              Add Ingrediente
+              </button>
+            </div>
+            </div>
+          </div>
       </div>
-
-
     </form>
   </div>
 </div>
