@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecetaService } from '../recetas-lista/recetas.service';
+import { Receta } from '../model/receta.model';
 @Component({
   selector: 'app-recetas-edit',
   templateUrl: './recetas-edit.component.html',
@@ -23,13 +24,25 @@ export class RecetasEditComponent implements OnInit {
       });
   }
   onSubmit() {
-   console.log(this.recetaForma);
+   console.log(this.recetaForma.value);
+  //  const newReceta = new Receta(
+  //    this.recetaForma.value['nombre'],
+  //    this.recetaForma.value['descripcion'],
+  //    this.recetaForma.value['imagenRuta'],
+  //    this.recetaForma.value['ingredientes']
+  //  );
+   if (this.modoEditar) {
+     this.recetaServicio.updateReceta(this.id, this.recetaForma.value);
+   } else { this.recetaServicio.addReceta(this.recetaForma.value); }
   }
   onAddIngrediente() {
     (<FormArray>this.recetaForma.get('ingredientes')).push(
       new FormGroup({
-        'nombre': new FormControl(),
-        'monto': new FormControl()
+        'nombre': new FormControl(null, Validators.required),
+        'monto': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/)
+        ])
       })
     );
   }
@@ -48,17 +61,20 @@ export class RecetasEditComponent implements OnInit {
         for (const ing of receta.ingredientes) {
           recetaIngredientes.push(
             new FormGroup({
-              'nombre': new FormControl(ing.nombre),
-              'monto': new FormControl(ing.monto)
+              'nombre': new FormControl(ing.nombre, Validators.required),
+              'monto': new FormControl(ing.monto, [
+                Validators.required,
+                Validators.pattern(/^[1-9]+[0-9]*$/)
+              ])
             })
           );
         }
       }
     }
     this.recetaForma = new FormGroup({
-      'nombre': new FormControl(recetaNombre),
-      'imagenRuta': new FormControl(recetaImagenRuta),
-      'descripcion': new FormControl(recetaDescripcion),
+      'nombre': new FormControl(recetaNombre, Validators.required),
+      'imagenRuta': new FormControl(recetaImagenRuta, Validators.required),
+      'descripcion': new FormControl(recetaDescripcion, Validators.required),
       'ingredientes': recetaIngredientes
     });
   }

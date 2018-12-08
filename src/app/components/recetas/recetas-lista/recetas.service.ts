@@ -1,11 +1,13 @@
-import { Receta } from '../model/receta.model';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Receta } from '../model/receta.model';
 import { Ingrediente
 } from '../../compatido/model/ingrediente.model';
 import { ComprasListaService
 } from '../../compras/compras-lista/compras.service';
 @Injectable()
 export class RecetaService {
+  recetaChanged = new Subject<Receta[]>();
   recetas: Receta[] = [
     new Receta(
       'Hamburguesa Guacamole',
@@ -28,8 +30,15 @@ export class RecetaService {
   getRecetas() {
     return this.recetas.slice();
   }
-  getReceta(index: number) {
-    return this.recetas[index];
+  getReceta(i: number) {
+    return this.recetas[i];
+  }
+  addReceta(rec: Receta) {
+    this.recetas.push(rec);
+    this.recetaChanged.next(this.recetas.slice());
+  }
+  updateReceta(i: number, newReceta: Receta ) {
+    this.recetas[i] = newReceta;
   }
   addIngredientesAlCarrito(ingrediente: Ingrediente[]) {
     this.clServicio.addIngredientes(ingrediente);
