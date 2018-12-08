@@ -22,7 +22,6 @@ export class RecetasDetalleComponent implements OnInit {
         this.id = +params['id'];
         this.receta = this.recetaServicio.getReceta(this.id);
       });
-    
   }
   onAlCarrito() {
     this.recetaServicio.addIngredientesAlCarrito(this.receta.ingredientes);
@@ -30,5 +29,9 @@ export class RecetasDetalleComponent implements OnInit {
   onEditarReceta() {
     this.router.navigate(['edita'], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edita'], {relativeTo: this.route});
+  }
+  onEliminarReceta() {
+    this.recetaServicio.deleteReceta(this.id);
+    this.router.navigate(['/recetas']);
   }
 }

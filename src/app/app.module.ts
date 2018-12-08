@@ -16,6 +16,7 @@ import { ComprasListaService } from './components/compras/compras-lista/compras.
 import { AppRoutingModule } from './routes/app.routing.module';
 
 import { DropdownDirective } from './components/compatido/dropdown.directive';
+import { RecetaService } from './components/recetas/recetas-lista/recetas.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { DropdownDirective } from './components/compatido/dropdown.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ComprasListaService],
+  providers: [ComprasListaService, RecetaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

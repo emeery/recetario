@@ -5,8 +5,10 @@
         <div class="col-xs-12">
           <button [disabled]="!recetaForma.valid"
           type="submit" class="btn btn-success">Salvar</button>
-          &nbsp;
-          <button type="button" class="btn btn-danger">Cancelar</button>
+
+          <button
+          (click)="onCancelar()"
+          type="button" class="btn btn-danger">Cancelar</button>
         </div>
       </div>
       <div class="row">
@@ -26,13 +28,14 @@
             <label for="imagenRuta">Imagen URL</label>
             <input type="text" id="imagenRuta" class="form-control"
             formControlName="imagenRuta"
+            #imagenRuta
             >
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" class="img-responsive">
+          <img [src]="imagenRuta.value" class="img-responsive">
         </div>
       </div>
       <div class="row">
@@ -54,7 +57,7 @@
         <div class="col-xs-12"
         formArrayName="ingredientes">
           <div class="row"
-          *ngFor="let ingctrl of getControls(); let i = index"
+          *ngFor="let ingctrl of getControles(); let i = index"
           formGroupName="{{i}}"
           style="margin-top: 10px;"
           >
@@ -69,7 +72,10 @@
               type="number" class="form-control">
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button
+              type="button"
+              (click)="onDeleteIngrediente(i)"
+              class="btn btn-danger">X</button>
             </div>
           </div>
           <br>

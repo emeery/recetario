@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecetaService } from '../recetas-lista/recetas.service';
-import { Receta } from '../model/receta.model';
+
 @Component({
   selector: 'app-recetas-edit',
   templateUrl: './recetas-edit.component.html',
@@ -14,7 +14,8 @@ export class RecetasEditComponent implements OnInit {
   modoEditar = false;
   constructor(
     private route: ActivatedRoute,
-    private recetaServicio: RecetaService) {}
+    private recetaServicio: RecetaService,
+    private router: Router) {}
   ngOnInit() {
     this.route.params
       .subscribe((params: Params) => {
@@ -25,15 +26,11 @@ export class RecetasEditComponent implements OnInit {
   }
   onSubmit() {
    console.log(this.recetaForma.value);
-  //  const newReceta = new Receta(
-  //    this.recetaForma.value['nombre'],
-  //    this.recetaForma.value['descripcion'],
-  //    this.recetaForma.value['imagenRuta'],
-  //    this.recetaForma.value['ingredientes']
-  //  );
+  //  const newReceta = new Receta(this.recetaForma.value['nombre'], ...
    if (this.modoEditar) {
      this.recetaServicio.updateReceta(this.id, this.recetaForma.value);
    } else { this.recetaServicio.addReceta(this.recetaForma.value); }
+   this.onCancelar();
   }
   onAddIngrediente() {
     (<FormArray>this.recetaForma.get('ingredientes')).push(
@@ -45,6 +42,14 @@ export class RecetasEditComponent implements OnInit {
         ])
       })
     );
+  }
+  onDeleteIngrediente(i: number) {
+    // recupera un control anidado
+    (<FormArray>this.recetaForma.get('ingredientes')).removeAt(i);
+  }
+  onCancelar() {
+    // redirige a la ruta anterior
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
   private initForm() {
     let recetaNombre = '';
@@ -78,7 +83,7 @@ export class RecetasEditComponent implements OnInit {
       'ingredientes': recetaIngredientes
     });
   }
-  getControls() {
+  getControles() {
   return (<FormArray>this.recetaForma.get('ingredientes')).controls;
   }
 }

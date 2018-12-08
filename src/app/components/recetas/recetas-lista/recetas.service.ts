@@ -39,6 +39,11 @@ export class RecetaService {
   }
   updateReceta(i: number, newReceta: Receta ) {
     this.recetas[i] = newReceta;
+    this.recetaChanged.next(this.recetas.slice());
+  }
+  deleteReceta(i: number) {
+    this.recetas.splice(i, 1);
+    this.recetaChanged.next(this.recetas.slice());
   }
   addIngredientesAlCarrito(ingrediente: Ingrediente[]) {
     this.clServicio.addIngredientes(ingrediente);
