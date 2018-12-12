@@ -5,10 +5,11 @@ import { Ingrediente
 } from '../../compatido/model/ingrediente.model';
 import { ComprasListaService
 } from '../../compras/compras-lista/compras.service';
+
 @Injectable()
 export class RecetaService {
   recetaChanged = new Subject<Receta[]>();
-  recetas: Receta[] = [
+  private recetas: Receta[] = [
     new Receta(
       'Hamburguesa Guacamole',
       '225gr de ternera gallega - sorprendente',
@@ -27,6 +28,10 @@ export class RecetaService {
         ] ),
   ];
   constructor(private clServicio: ComprasListaService) {}
+  setRecetas(recetas: Receta[]) {
+    this.recetas = recetas;
+    this.recetaChanged.next(this.recetas.slice());
+  }
   getRecetas() {
     return this.recetas.slice();
   }

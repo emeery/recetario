@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 import { Receta } from '../model/receta.model';
 import { RecetaService } from './recetas.service';
-import { Subscription } from 'rxjs';
-import { ThrowStmt } from '@angular/compiler';
+
 @Component({
   selector: 'app-recetas-lista',
   templateUrl: './recetas-lista.component.html',
@@ -17,7 +17,8 @@ export class RecetasListaComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute) {}
   ngOnInit() {
-    this.subscripcion = this.recetaServicio.recetaChanged.subscribe(
+    this.subscripcion = this.recetaServicio.recetaChanged
+    .subscribe(
       (rec: Receta[]) => {
       this.recetas = rec;
     });

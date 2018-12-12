@@ -1,11 +1,8 @@
 import {
   Component,
   OnInit,
-  Input,
-  Output,
-  EventEmitter } from '@angular/core';
+  Input } from '@angular/core';
 import { Receta } from '../model/receta.model';
-import { RecetaService } from '../recetas-lista/recetas.service';
 
 @Component({
   selector: 'app-receta-item',

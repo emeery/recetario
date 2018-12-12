@@ -1,16 +1,21 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+import { DataRecetasService } from '../compatido/service/data-recetas.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  @Output() destacado = new EventEmitter<string>();
-  constructor() { }
-  ngOnInit() {}
-  onSelect(feat: string) {
-    this.destacado.emit(feat);
+export class HeaderComponent {
+  constructor(private drServicio: DataRecetasService) { }
+  onSaveDatos() {
+    this.drServicio.storeRecetas()
+    .subscribe((res: Response) => {
+      console.log(res);
+    });
   }
-
+  onFetchDatos() {
+    this.drServicio.getRecetas();
+  }
 }

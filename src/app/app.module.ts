@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './routes/app.routing.module';
 
 import { DropdownDirective } from './components/compatido/dropdown.directive';
 import { RecetaService } from './components/recetas/recetas-lista/recetas.service';
+import { DataRecetasService } from './components/compatido/service/data-recetas.service';
 
 
 @NgModule({
@@ -37,9 +39,10 @@ import { RecetaService } from './components/recetas/recetas-lista/recetas.servic
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
   ],
-  providers: [ComprasListaService, RecetaService],
+  providers: [ComprasListaService, RecetaService, DataRecetasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
