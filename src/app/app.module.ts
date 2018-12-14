@@ -36,11 +36,11 @@ import { DataRecetasService } from './components/compatido/service/data-recetas.
     RecetasEditComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    AppRoutingModule,
   ],
   providers: [ComprasListaService, RecetaService, DataRecetasService],
   bootstrap: [AppComponent]
