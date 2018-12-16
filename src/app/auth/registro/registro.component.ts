@@ -10,10 +10,10 @@ import { AuthService } from '../auth.service';
 export class RegistroComponent implements OnInit {
   constructor(private authServicio: AuthService) { }
   ngOnInit() {}
-  onRegistro(forma: NgForm) {
-    const email = forma.value.correo;
-    const contraseña = forma.value.contraseña;
-    this.authServicio.signupUsuario(email, contraseña);
-  }
+  // onRegistro(forma: NgForm) {
+  //   const email = forma.value.correo;
+  //   const contraseña = forma.value.contraseña;
+  //   this.authServicio.signupUsuario(email, contraseña);
+  // }
 
 }

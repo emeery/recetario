@@ -48,7 +48,12 @@ import { AuthService } from './auth/auth.service';
     HttpModule,
     AppRoutingModule,
   ],
-  providers: [ComprasListaService, RecetaService, DataRecetasService, AuthService],
+  providers: [
+    ComprasListaService,
+    RecetaService,
+    DataRecetasService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

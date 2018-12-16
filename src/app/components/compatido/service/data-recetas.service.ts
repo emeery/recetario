@@ -17,8 +17,8 @@ export class DataRecetasService {
     this.recetasServicio.getRecetas());
   }
   getRecetas() {
-    const token = this.authServicio.getToken();
-    this.http.get('https://recetario-2777f.firebaseio.com/recetas.json?auth=' + token)
+    // const token = this.authServicio.getToken();
+    this.http.get('https://recetario-2777f.firebaseio.com/recetas.json')
     .pipe(map(
       (res: Response) => {
         const recetas: Receta[] = res.json();
