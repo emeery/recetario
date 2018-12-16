@@ -5,6 +5,7 @@ import { RecetasStartComponent } from '../components/recetas/recetas-start/recet
 import { RecetasEditComponent } from '../components/recetas/recetas-edit/recetas-edit.component';
 import { RecetasDetalleComponent } from '../components/recetas/recetas-detalle/recetas-detalle.component';
 import { ComprasListaComponent } from '../components/compras/compras-lista/compras-lista.component';
+import { RegistroComponent } from '../auth/registro/registro.component';
 
 
 const rutas: Routes = [
@@ -16,6 +17,7 @@ const rutas: Routes = [
       {path: ':id/edita', component: RecetasEditComponent}
     ]},
     {path: 'compras-lista', component: ComprasListaComponent },
+    {path: 'signup', component: RegistroComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(rutas)],

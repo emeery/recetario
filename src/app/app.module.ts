@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
@@ -19,6 +20,9 @@ import { AppRoutingModule } from './routes/app.routing.module';
 import { DropdownDirective } from './components/compatido/dropdown.directive';
 import { RecetaService } from './components/recetas/recetas-lista/recetas.service';
 import { DataRecetasService } from './components/compatido/service/data-recetas.service';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -33,7 +37,9 @@ import { DataRecetasService } from './components/compatido/service/data-recetas.
     ComprasListaComponent,
     DropdownDirective,
     RecetasStartComponent,
-    RecetasEditComponent
+    RecetasEditComponent,
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import { DataRecetasService } from './components/compatido/service/data-recetas.
     HttpModule,
     AppRoutingModule,
   ],
-  providers: [ComprasListaService, RecetaService, DataRecetasService],
+  providers: [ComprasListaService, RecetaService, DataRecetasService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
