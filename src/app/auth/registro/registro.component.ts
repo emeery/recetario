@@ -11,7 +11,7 @@ export class RegistroComponent implements OnInit {
   constructor(private authServicio: AuthService) { }
   ngOnInit() {}
   onRegistro(forma: NgForm) {
-    const email = forma.value.email;
+    const email = forma.value.correo;
     const contraseña = forma.value.contraseña;
     this.authServicio.signupUsuario(email, contraseña);
   }

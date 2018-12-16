@@ -3,13 +3,13 @@
   col-sm-10 col-md-8 col-sm-offset-1 col-sm-offset-2" >
     <form (ngSubmit)="onRegistro(f)" #f="ngForm">
       <div class="form-group">
-        <label for="">Email</label>
-        <input type="text" id="email" name="correo"
+        <label for="correo">Email</label>
+        <input type="text" id="correo" name="correo"
         ngModel class="form-control">
       </div>
       <div class="form-group">
-        <label for="">Contraseña</label>
-        <input type="password" id="pass" name="contraseña"
+        <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña"
         ngModel class="form-control">
       </div>
       <button class="btn btn-primary" type="submit">Registrate</button>
