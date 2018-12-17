@@ -22,4 +22,7 @@ export class HeaderComponent {
   onFetchDatos() {
     this.drServicio.getRecetas();
   }
+  onLogout() {
+    this.autServicio.logout();
+  }
 }

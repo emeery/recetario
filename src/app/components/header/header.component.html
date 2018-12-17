@@ -28,17 +28,22 @@
           >Lista de Compras</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <ng-template [ngIf]="!autServicio.estaAutenticado()">
-                <li><a routerLink="/login">Ingresar</a></li>
-                <li><a routerLink="/signup">Registro</a></li>
-            </ng-template>
-          <li class="dropdown" appDropdown>
-            <a style="cursor: pointer;" class="dropdown-toggle"
-            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" *ngIf="autServicio.estaAutenticado()">
+          <ng-template [ngIf]="!autServicio.estaAutenticado()">
+              <li><a routerLink="/login">Ingresar</a></li>
+              <li><a routerLink="/signup">Registro</a></li>
+          </ng-template>
+          <li class="dropdown"
+          appDropdown *ngIf="autServicio.estaAutenticado()">
+            <a
+            style="cursor: pointer;" class="dropdown-toggle"
+            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            MiRecetario<span class="caret"></span></a>
+            <ul class="dropdown-menu">
               <li><a (click)="onSaveDatos()" style="cursor: pointer;">Salvar Recetas</a></li>
               <li><a (click)="onFetchDatos()" style="cursor: pointer;">Obtiene Recetas</a></li>
+              <li><a (click)="onLogout()" style="cursor: pointer;">Salir</a></li>
             </ul>
+
           </li>
         </ul>
       </div>
