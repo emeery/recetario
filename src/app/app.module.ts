@@ -23,6 +23,7 @@ import { DataRecetasService } from './components/compatido/service/data-recetas.
 import { RegistroComponent } from './auth/registro/registro.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AuthService } from './auth/auth.service';
     ComprasListaService,
     RecetaService,
     DataRecetasService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
