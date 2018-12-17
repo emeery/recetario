@@ -27,5 +27,8 @@ export class AuthService {
     );
     return this.token;
   }
+  estaAutenticado() {
+    return this.token != null;
+  }
 }
 
