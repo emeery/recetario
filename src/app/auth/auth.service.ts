@@ -8,21 +8,21 @@ export class AuthService {
     .createUserWithEmailAndPassword(e, p)
     .catch( err => console.log(err));
   }
-  // loginUsuario(e: string, p: string) {
-  //   firebase.auth()
-  //   .signInWithEmailAndPassword(e, p)
-  //   .then(res =>
-  //     firebase.auth().currentUser.getIdToken()
-  //   ).then(
-  //     (t: string) => this.token = t
-  //   );
-  // }
-  // getToken() {
-  //   firebase.auth().currentUser.getIdToken()
-  //   .then(
-  //     (t: string) => this.token = t
-  //   );
-  //   return this.token;
-  // }
+  loginUsuario(e: string, p: string) {
+    firebase.auth()
+    .signInWithEmailAndPassword(e, p)
+    .then(res =>
+      firebase.auth().currentUser.getIdToken()
+    ).then(
+      (t: string) => this.token = t
+    );
+  }
+  getToken() {
+    firebase.auth().currentUser.getIdToken()
+    .then(
+      (t: string) => this.token = t
+    );
+    return this.token;
+  }
 }
 

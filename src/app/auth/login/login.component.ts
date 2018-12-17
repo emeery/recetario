@@ -15,7 +15,5 @@
       const email = forma.value.correo;
       const contraseña = forma.value.contraseña;
       this.authServicio.loginUsuario(email, contraseña);
-      const token = this.authServicio.getToken();
-      console.log(token);
     }
   }
