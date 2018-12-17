@@ -13,7 +13,8 @@ export class DataRecetasService {
     private authServicio: AuthService
   ) {}
   storeRecetas() {
-    return this.http.put('https://recetario-2777f.firebaseio.com/recetas.json',
+    const token = this.authServicio.getToken();
+    return this.http.put('https://recetario-2777f.firebaseio.com/recetas.json?auth=' + token,
     this.recetasServicio.getRecetas());
   }
   getRecetas() {

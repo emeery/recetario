@@ -14,7 +14,10 @@ export class AuthService {
     .then(res =>
       firebase.auth().currentUser.getIdToken()
     ).then(
-      (t: string) => this.token = t
+      (t: string) => {
+        this.token = t;
+        console.log(this.token);
+      }
     );
   }
   getToken() {

@@ -8,12 +8,11 @@
     styleUrls: ['./login.component.css']
   })
   export class LoginComponent implements OnInit {
-
-    constructor(private authServicio: AuthService) {}
+    constructor(private autServicio: AuthService) {}
     ngOnInit() {}
     onLogin(forma: NgForm) {
       const email = forma.value.correo;
       const contraseña = forma.value.contraseña;
-      this.authServicio.loginUsuario(email, contraseña);
+      this.autServicio.loginUsuario(email, contraseña);
     }
   }
