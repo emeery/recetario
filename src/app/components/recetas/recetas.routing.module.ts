@@ -7,7 +7,7 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
 import { RecetasDetalleComponent } from './recetas-detalle/recetas-detalle.component';
 
 const recetasRutas: Routes = [
-  { path: 'recetas', component: RecetaAppComponent, children: [
+  { path: '', component: RecetaAppComponent, children: [
     {path: '', component: RecetasStartComponent},
     {path: 'new', component: RecetasEditComponent, canActivate: [AuthGuard]},
     {path: ':id', component: RecetasDetalleComponent},

@@ -5,6 +5,7 @@ import { HomeComponent } from '../components/home/home.component';
 
 const rutas: Routes = [
     {path: '', component: HomeComponent },
+    {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
     {path: 'compras-lista', component: ComprasListaComponent },
 ];
 @NgModule({

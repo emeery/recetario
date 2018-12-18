@@ -29,7 +29,6 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RecetasModule,
     AppRoutingModule,
     CompartidoModule,
     ComprasModule,
