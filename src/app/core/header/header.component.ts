@@ -23,6 +23,9 @@ export class HeaderComponent {
   onFetchDatos() {
     this.drServicio.getRecetas();
   }
+  estaAutenticado() {
+    return this.autServicio.estaAutenticado();
+  }
   onLogout() {
     this.autServicio.logout();
   }
