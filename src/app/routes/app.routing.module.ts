@@ -1,20 +1,11 @@
 import {Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { RecetaAppComponent } from '../components/recetas/receta-app/receta-app.component';
-import { RecetasStartComponent } from '../components/recetas/recetas-start/recetas-start.component';
-import { RecetasEditComponent } from '../components/recetas/recetas-edit/recetas-edit.component';
-import { RecetasDetalleComponent } from '../components/recetas/recetas-detalle/recetas-detalle.component';
 import { ComprasListaComponent } from '../components/compras/compras-lista/compras-lista.component';
-import { RegistroComponent } from '../auth/registro/registro.component';
-import { LoginComponent } from '../auth/login/login.component';
-import { AuthGuard } from '../auth/auth.guard';
-
+import { HomeComponent } from '../components/home/home.component';
 
 const rutas: Routes = [
-    { path: '', redirectTo: '/recetas', pathMatch: 'full' },
+    {path: '', component: HomeComponent },
     {path: 'compras-lista', component: ComprasListaComponent },
-    {path: 'signup', component: RegistroComponent },
-    {path: 'login', component: LoginComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(rutas)],
