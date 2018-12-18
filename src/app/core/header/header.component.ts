@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { DataRecetasService } from '../compatido/service/data-recetas.service';
+
 import { AuthService } from 'src/app/auth/auth.service';
+import { DataRecetasService } from 'src/app/components/compatido/service/data-recetas.service';
 
 @Component({
   selector: 'app-header',

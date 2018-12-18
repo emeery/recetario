@@ -1,10 +1,11 @@
 import {Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ComprasListaComponent } from '../components/compras/compras-lista/compras-lista.component';
-import { HomeComponent } from '../components/home/home.component';
+import { HomeComponent } from '../core/home/home.component';
+
 
 const rutas: Routes = [
-    {path: '', component: HomeComponent },
+    {path: '', component: HomeComponent},
     {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
     {path: 'compras-lista', component: ComprasListaComponent },
 ];
