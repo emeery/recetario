@@ -7,8 +7,8 @@ import { ComprasListaService } from '../components/compras/compras-lista/compras
 import { RecetaService } from '../components/recetas/recetas-lista/recetas.service';
 import { DataRecetasService } from '../components/compatido/service/data-recetas.service';
 import { AuthService } from '../auth/auth.service';
-
-
+import { AuthInterceptor } from '../components/compatido/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { AuthService } from '../auth/auth.service';
     ComprasListaService,
     RecetaService,
     DataRecetasService,
-    AuthService
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class CoreModule { }

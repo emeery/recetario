@@ -10,6 +10,8 @@ import { DataRecetasService } from 'src/app/components/compatido/service/data-re
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  // private logo = require('../../../assets/images/chef.png');
+  // private imagenRuta = 'https://image.flaticon.com/icons/svg/526/5261e90.svg';
   constructor(
     private drServicio: DataRecetasService,
     private autServicio: AuthService
