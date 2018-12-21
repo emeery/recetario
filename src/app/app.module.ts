@@ -10,6 +10,8 @@ import { CompartidoModule } from './components/compatido/compartido.module';
 import { ComprasModule } from './components/compras/compras.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { StoreModule } from '@ngrx/store';
+import { comprasReducer } from './components/compras/tienda/compras.reducers';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { CoreModule } from './core/core.module';
     CompartidoModule,
     ComprasModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({compras: comprasReducer})
   ],
   bootstrap: [AppComponent]
 })
