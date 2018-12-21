@@ -27,6 +27,7 @@ export class DataRecetasService {
     //   params: new HttpParams().set('auth', token),
     //   // headers
     // });
+
     const req = new HttpRequest('PUT',
     'https://recetario-2777f.firebaseio.com/recetas.json',
     this.recetasServicio.getRecetas(),
