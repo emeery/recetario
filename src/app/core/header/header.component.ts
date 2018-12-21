@@ -18,7 +18,7 @@ export class HeaderComponent {
     ) { }
   onSaveDatos() {
     this.drServicio.storeRecetas()
-    .subscribe((res: Response) => {
+    .subscribe((res) => {
       console.log(res);
     });
   }

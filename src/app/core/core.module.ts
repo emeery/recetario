@@ -9,6 +9,7 @@ import { DataRecetasService } from '../components/compatido/service/data-recetas
 import { AuthService } from '../auth/auth.service';
 import { AuthInterceptor } from '../components/compatido/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoggingInterceptor } from '../components/compatido/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     RecetaService,
     DataRecetasService,
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
   ]
 })
 export class CoreModule { }

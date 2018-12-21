@@ -52,7 +52,7 @@ export class DataRecetasService {
       ))
       .subscribe((receta) => {
         console.log(receta);
-        // this.recetasServicio.setRecetas(recetas);
+        this.recetasServicio.setRecetas(receta);
       });
   }
 }
