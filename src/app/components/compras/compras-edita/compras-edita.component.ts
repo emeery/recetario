@@ -7,7 +7,8 @@ import { Ingrediente } from '../../compatido/model/ingrediente.model';
 import { ComprasListaService } from '../compras-lista/compras.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-
+import { Store } from '@ngrx/store';
+import * as ComprasAccion from '../tienda/compras.actions';
 @Component({
   selector: 'app-compras-edita',
   templateUrl: './compras-edita.component.html',
@@ -19,7 +20,9 @@ export class ComprasEditaComponent implements OnInit, OnDestroy {
   editarModo = false;
   editadoItemIndex: number;
   editadoItem: Ingrediente;
-  constructor(private clServicio: ComprasListaService) { }
+  constructor(
+    private clServicio: ComprasListaService,
+    private tienda: Store<{compras: {ingredientes: Ingrediente[]}}>) { }
   ngOnInit() {
     this.subscripcion = this.clServicio.empezarEditing
     .subscribe((i: number) => {
@@ -39,7 +42,8 @@ export class ComprasEditaComponent implements OnInit, OnDestroy {
       this.clServicio.updateIngrediente(
         this.editadoItemIndex, nuevoIngrediente);
     } else {
-      this.clServicio.addIngrediente(nuevoIngrediente);
+      // this.clServicio.addIngrediente(nuevoIngrediente);
+      this.tienda.dispatch(new ComprasAccion.AddIngrediente(nuevoIngrediente));
     }
     this.editarModo = false;
     forma.reset();

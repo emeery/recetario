@@ -1,6 +1,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -26,7 +27,8 @@ import { comprasReducer } from './components/compras/tienda/compras.reducers';
     ComprasModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot({compras: comprasReducer})
+    StoreModule.forRoot({compras: comprasReducer}),
+    StoreDevtoolsModule.instrument({maxAge: 10})
   ],
   bootstrap: [AppComponent]
 })

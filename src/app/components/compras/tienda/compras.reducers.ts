@@ -10,6 +10,7 @@ const estadoInicial = {
 export const ADD_INGREDIENTE = 'ADD_INGREDIENTE';
 export function comprasReducer(
   state = estadoInicial, action: ComprasActions.ComprasAcciones) {
+    console.log(action.type);
     switch (action.type) {
       case ComprasActions.ADD_INGREDIENTE:
       return {

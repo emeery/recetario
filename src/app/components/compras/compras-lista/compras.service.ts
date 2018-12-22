@@ -8,16 +8,16 @@ export class ComprasListaService {
     new Ingrediente('Apio', 5),
     new Ingrediente('Brócoli', 10)
   ];
-  getIngredientes() {
-    return this.ingredientes.slice();
-  }
+  // getIngredientes() {
+  //   return this.ingredientes.slice();
+  // }
   getIngrediente(index: number) {
     return this.ingredientes[index];
   }
-  addIngrediente(ing: Ingrediente) {
-    this.ingredientes.push(ing);
-    this.ingredientesChanged.next(this.ingredientes.slice());
-  }
+  // addIngrediente(ing: Ingrediente) {
+  //   this.ingredientes.push(ing);
+  //   this.ingredientesChanged.next(this.ingredientes.slice());
+  // }
   addIngredientes(ing: Ingrediente[]) {
     // for (const ingrediente of ing) {
     //   this.addIngrediente(ingrediente);
