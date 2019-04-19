@@ -16,15 +16,19 @@ export class AuthService {
     firebase.auth()
     .signInWithEmailAndPassword(e, p)
     .then(res => {
+      // redireccionamiento
       this.router.navigate(['/recetas']);
-      firebase.auth().currentUser.getIdToken()
+      // token
+      firebase.auth()
+      .currentUser.getIdToken()
       .then(
         (t: string) => this.token = t
       );
     }).catch(err => console.log(err));
   }
   getToken() {
-    firebase.auth().currentUser.getIdToken()
+    firebase.auth()
+    .currentUser.getIdToken()
     .then(
       (t: string) => this.token = t
     );

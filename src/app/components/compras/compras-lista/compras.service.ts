@@ -30,7 +30,8 @@ export class ComprasListaService {
     this.ingredientesChanged.next(this.ingredientes.slice());
   }
   deleteIngrediente(index: number) {
-    this.ingredientes.splice(index, 1);
+    const e = this.ingredientes.splice(index, 1);
+    // console.log(e);
     this.ingredientesChanged.next(this.ingredientes.slice()); // copia
   }
 }

@@ -31,7 +31,7 @@ export class DataRecetasService {
     const req = new HttpRequest('PUT',
     'https://recetario-2777f.firebaseio.com/recetas.json',
     this.recetasServicio.getRecetas(),
-    { reportProgress: true });
+    { reportProgress: true }); // notified about the download/upload progress
       return this.http.request(req);
   }
   getRecetas() {
